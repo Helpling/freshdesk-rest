@@ -3,6 +3,8 @@ module Freshdesk
     class Configuration
       attr_writer :api_key, :domain
 
+      DEFAULT_KEY = :main
+
       def initialize
         @api_key = nil
         @domain = nil

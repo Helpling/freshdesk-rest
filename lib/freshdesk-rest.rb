@@ -10,16 +10,18 @@ require_relative 'freshdesk-rest/resource/solutions/folder'
 
 module Freshdesk
   module Rest
-    def self.configuration
-      @configuration ||= Configuration.new
+    @configurations = {}
+
+    def self.configuration(configuration_key = Configuration::DEFAULT_KEY)
+      @configurations[configuration_key] ||= Configuration.new
     end
 
-    def self.reset
-      @configuration = Configuration.new
+    def self.reset(configuration_key = Configuration::DEFAULT_KEY)
+      @configurations[configuration_key] = Configuration.new
     end
 
-    def self.configure
-      yield(configuration)
+    def self.configure(configuration_key = Configuration::DEFAULT_KEY)
+      yield(configuration(configuration_key))
     end
   end
 end
