@@ -15,4 +15,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://rubygems.org/gems/freshdesk-rest'
   s.metadata    = { 'source_code_uri' => 'https://github.com/Helpling/freshdesk-rest' }
   s.license     = 'MIT'
+  s.add_dependency 'rest-client', '~> 2.0', '>= 2.0.2'
+  s.add_development_dependency 'rspec', '~> 3.8'
+  s.add_development_dependency 'webmock', '~> 3.4', '>= 3.4.2'
 end
