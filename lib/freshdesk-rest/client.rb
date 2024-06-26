@@ -6,12 +6,12 @@ module Freshdesk
     class Client
       def initialize(
         api_key: Freshdesk::Rest.configuration.api_key,
-        domain: Freshdesk::Rest.configuration.domain
+        subdomain: Freshdesk::Rest.configuration.subdomain
       )
         @api = Freshdesk::Rest::Api.new(
           rest_client: RestClient,
           api_key:,
-          domain:
+          subdomain:
         )
       end
 

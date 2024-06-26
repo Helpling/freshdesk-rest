@@ -1,11 +1,11 @@
 module Freshdesk
   module Rest
     class Configuration
-      attr_writer :api_key, :domain
+      attr_writer :api_key, :subdomain
 
       def initialize
         @api_key = nil
-        @domain = nil
+        @subdomain = nil
       end
 
       def api_key
@@ -14,9 +14,26 @@ module Freshdesk
       end
 
       def domain
-        raise 'Freshdesk domain not defined' if @domain.nil?
-        @domain
+        warn_domain_deprecated
+        @subdomain
       end
+
+      def domain=(domain)
+        warn_domain_deprecated
+        @subdomain = domain
+      end
+
+      def subdomain
+        raise 'Freshdesk subdomain not defined' if @subdomain.nil?
+        @subdomain
+      end
+
+      private
+
+        def warn_domain_deprecated
+           warn "[DEPRECATION] Freshdesk config option `domain` is deprecated. Please use `subdomain` instead."
+        end
+
     end
   end
 end

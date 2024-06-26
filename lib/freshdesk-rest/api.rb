@@ -1,10 +1,10 @@
 module Freshdesk
   module Rest
     class Api
-      def initialize(rest_client:, api_key:, domain:)
+      def initialize(rest_client:, api_key:, subdomain:)
         @client = rest_client
         @api_key = api_key
-        @domain = domain
+        @subdomain = subdomain
       end
 
       def get(path)
@@ -31,7 +31,7 @@ module Freshdesk
       end
 
       def base_url
-        @base_url ||= "https://#{@domain}.freshdesk.com/api/v2".freeze
+        @base_url ||= "https://#{@subdomain}.freshdesk.com/api/v2".freeze
       end
     end
   end

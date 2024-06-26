@@ -6,7 +6,7 @@ RSpec.describe Freshdesk::Rest::Factory do
   before do
     Freshdesk::Rest.configure do |config|
       config.api_key = 'SOME_FRESHDESK_API_KEY'
-      config.domain = 'SOME_FRESHDESK_DOMAIN'
+      config.subdomain = 'SOME_FRESHDESK_SUBDOMAIN'
     end
   end
 

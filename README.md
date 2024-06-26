@@ -7,7 +7,7 @@ A simple REST Freshdesk integration
 ## Requirements
 - Create a read-only API key in Freshdesk
 - Set an ENV var with `FRESHDESK_API_KEY`
-- Set an ENV var with `FRESHDESK_DOMAIN`
+- Set an ENV var with `FRESHDESK_SUBDOMAIN` ("fizbuz" if your Freshdesk domain is fizbuz.freshdesk.com)
 
 ## DISCLAIMER
 ### This is still a BETA!
@@ -17,7 +17,7 @@ Some of the methods signatures could change. I aim to keep always backward compa
 ```ruby
 Freshdesk::Rest.configure do |config|
   config.api_key = ENV['FRESHDESK_API_KEY']
-  config.domain = ENV['FRESHDESK_DOMAIN']
+  config.subdomain = ENV['FRESHDESK_SUBDOMAIN']
 end
 
 ```
@@ -33,7 +33,7 @@ freshdesk_client = Freshdesk::Rest::Client.new
 ```ruby
 freshdesk_client = Freshdesk::Rest::Client.new(
   api_key: ENV['FRESHDESK_API_KEY'],
-  domain: ENV['FRESHDESK_DOMAIN']
+  subdomain: ENV['FRESHDESK_SUBDOMAIN']
 )
 ```
 

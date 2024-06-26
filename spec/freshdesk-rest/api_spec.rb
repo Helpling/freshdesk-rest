@@ -5,9 +5,9 @@ require_relative '../../lib/freshdesk-rest/api'
 RSpec.describe Freshdesk::Rest::Api do
   let(:rest_client) { RestClient }
   let(:api_key)     { 'some_random_api_key' }
-  let(:domain)      { 'some_random_domain' }
-  let(:base_url)    { "https://#{domain}.freshdesk.com/api/v2" }
-  let(:service)     { described_class.new(rest_client: rest_client, api_key: api_key, domain: domain) }
+  let(:subdomain)      { 'some_random_subdomain' }
+  let(:base_url)    { "https://#{subdomain}.freshdesk.com/api/v2" }
+  let(:service)     { described_class.new(rest_client: rest_client, api_key: api_key, subdomain: subdomain) }
 
   describe '#get' do
     context 'resource is found but without content' do

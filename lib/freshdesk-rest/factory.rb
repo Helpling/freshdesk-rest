@@ -8,7 +8,7 @@ module Freshdesk
         Freshdesk::Rest::Api.new(
           rest_client: RestClient,
           api_key: Freshdesk::Rest.configuration.api_key,
-          domain: Freshdesk::Rest.configuration.domain
+          subdomain: Freshdesk::Rest.configuration.subdomain
         )
       end
 
